@@ -1,0 +1,84 @@
+{
+  "name": "Md Kabirul Hassan",
+  "title": "Software Engineer",
+  "tagline": "Building elegant solutions with modern web technologies",
+  "social": {
+    "github": "https://github.com/kabirulhassan",
+    "linkedin": "https://linkedin.com/in/kabirulhassan",
+    "email": "kabirulhassan7@gmail.com"
+  },
+  "skills": {
+    "languages": ["Java", "JavaScript", "TypeScript", "Python", "C/C++", "SQL (MySQL)", "Apex"],
+    "webTechnologies": ["HTML/CSS", "MongoDB", "Node.js", "React"],
+    "frameworks": ["Angular", "Express", "Next.js"],
+    "developerTools": ["Git", "GitHub", "VS Code", "Linux"]
+  },
+  "experience": [
+    {
+      "id": "teal",
+      "role": "Software Engineer (Fullstack)",
+      "company": "TEAL India",
+      "location": "Remote",
+      "period": "2023 - Present",
+      "technologies": ["Next.js", "React", "MongoDB", "TypeScript", "Node.js"],
+      "highlights": [
+        "Maintained a web application serving 5000+ users in banks, NBFCs and internal users using the Next.js technology stack",
+        "Developed a framework with an automated feature that extracts information from different forms to generate legal reports, drafting 350+ reports per day",
+        "Built a specialized ReactJS library for PDF highlighting with intuitive page navigation and OCR translation integration",
+        "Designed and implemented robust frameworks to manage and integrate new report types, improving data processing accuracy",
+        "Developed and optimized complex MongoDB aggregations for efficient data querying and analysis",
+        "Collaborated with cross-functional teams to ensure seamless integration and deployment of new features"
+      ]
+    },
+    {
+      "id": "baker-st",
+      "role": "Junior Salesforce Developer",
+      "company": "221B Baker ST / StrataVAR",
+      "location": "Remote",
+      "period": "September 2022 - September 2023",
+      "technologies": ["Salesforce", "JavaScript", "LWC", "Apex"],
+      "highlights": [
+        "Integrated Salesforce CPQ services into existing PQW quoting workspace for 700+ users by developing Apex controller classes and triggers",
+        "Enhanced UX by developing frontend with Lightning Web Components and Aura Components",
+        "Contributed to HyperGrid in-house product by fixing production bugs and implementing new features with LWC"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "url-shortener",
+      "name": "URL Shortener",
+      "period": "December 2021 - Present",
+      "technologies": ["Node.js", "Angular", "MongoDB", "Express", "Tailwind", "TypeScript"],
+      "description": "A full-stack URL shortening service with analytics",
+      "highlights": [
+        "Developed a full-stack web application with Node.js REST API and Angular frontend",
+        "Implemented URL shortening functionality accessible via both API and UI",
+        "Built analytics dashboard showing click statistics categorized by browsers",
+        "Implemented user authentication using JWT"
+      ],
+      "link": null
+    },
+    {
+      "id": "bits2bytes",
+      "name": "Bits2Bytes2k22",
+      "period": "June 2022 - July 2022",
+      "technologies": ["React", "Node.js", "MongoDB", "CSS", "Git"],
+      "description": "Event management web application built with a team of five",
+      "highlights": [
+        "Developed a full-stack web application with React frontend and Node.js REST API",
+        "Implemented component-based architecture for reusable and modular development",
+        "Used CSS and Bootstrap to create an intuitive UI/UX"
+      ],
+      "link": null
+    }
+  ],
+  "education": {
+    "degree": "Bachelor of Technology in Computer Science and Engineering",
+    "institution": "Bengal Institute of Technology",
+    "location": "Kolkata, India",
+    "period": "June 2019 - July 2023",
+    "cgpa": "9.13"
+  }
+}
+
