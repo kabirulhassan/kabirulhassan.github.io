@@ -62,7 +62,6 @@ body {
   background: var(--night-deep);
 }
 
-/* Faint Van Gogh cloud swirls */
 .starry-bg::before,
 .starry-bg::after {
   content: '';
@@ -92,7 +91,6 @@ body {
   border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
 }
 
-/* SVG background swirls */
 .bg-swirls {
   position: absolute;
   width: 100%;
@@ -108,7 +106,6 @@ body {
   stroke-width: 2;
   stroke-linecap: round;
 }
-
 
 /* ============================================
    Navigation
@@ -198,7 +195,6 @@ body {
   width: 100%;
 }
 
-/* Segmented Brush Stroke Rings - SVG */
 .hero-rings {
   position: relative;
   width: 420px;
@@ -217,7 +213,6 @@ body {
   stroke-width: 14;
 }
 
-/* Outer blue rings - slower animations */
 .ring-1 {
   stroke: #5a7fa8;
   stroke-dasharray: 50 35;
@@ -246,7 +241,6 @@ body {
   transform-origin: center;
 }
 
-/* Yellow transition rings */
 .ring-5 {
   stroke: #f0e68c;
   stroke-dasharray: 32 22;
@@ -263,7 +257,6 @@ body {
   filter: drop-shadow(0 0 5px rgba(244, 211, 94, 0.4));
 }
 
-/* Inner amber rings */
 .ring-7 {
   stroke: #e8a838;
   stroke-dasharray: 24 18;
@@ -280,45 +273,14 @@ body {
   filter: drop-shadow(0 0 8px rgba(218, 165, 32, 0.5));
 }
 
-@keyframes ring-spin-1 {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes ring-spin-2 {
-  from { transform: rotate(20deg); }
-  to { transform: rotate(380deg); }
-}
-
-@keyframes ring-spin-3 {
-  from { transform: rotate(40deg); }
-  to { transform: rotate(400deg); }
-}
-
-@keyframes ring-spin-4 {
-  from { transform: rotate(60deg); }
-  to { transform: rotate(420deg); }
-}
-
-@keyframes ring-spin-5 {
-  from { transform: rotate(80deg); }
-  to { transform: rotate(440deg); }
-}
-
-@keyframes ring-spin-6 {
-  from { transform: rotate(100deg); }
-  to { transform: rotate(460deg); }
-}
-
-@keyframes ring-spin-7 {
-  from { transform: rotate(120deg); }
-  to { transform: rotate(480deg); }
-}
-
-@keyframes ring-spin-8 {
-  from { transform: rotate(140deg); }
-  to { transform: rotate(500deg); }
-}
+@keyframes ring-spin-1 { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes ring-spin-2 { from { transform: rotate(20deg); } to { transform: rotate(380deg); } }
+@keyframes ring-spin-3 { from { transform: rotate(40deg); } to { transform: rotate(400deg); } }
+@keyframes ring-spin-4 { from { transform: rotate(60deg); } to { transform: rotate(420deg); } }
+@keyframes ring-spin-5 { from { transform: rotate(80deg); } to { transform: rotate(440deg); } }
+@keyframes ring-spin-6 { from { transform: rotate(100deg); } to { transform: rotate(460deg); } }
+@keyframes ring-spin-7 { from { transform: rotate(120deg); } to { transform: rotate(480deg); } }
+@keyframes ring-spin-8 { from { transform: rotate(140deg); } to { transform: rotate(500deg); } }
 
 .hero-text {
   flex: 1;
@@ -396,9 +358,8 @@ body {
   opacity: 0.8;
 }
 
-
 /* ============================================
-   Wavy Section Separators - Van Gogh Cloud Style
+   Wavy Section Separators
    ============================================ */
 .wave-separator {
   width: 100%;
@@ -816,11 +777,11 @@ body {
   .nav-toggle {
     display: flex;
     z-index: 1001;
-}
+  }
 
   .nav-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
-}
+  }
 
   .nav-toggle.active span:nth-child(2) {
     opacity: 0;
@@ -857,20 +818,6 @@ body {
     padding: 4rem 1.5rem;
   }
 
-  .timeline {
-    padding-left: 1.5rem;
-  }
-
-  .timeline-item::before {
-    left: -1.5rem;
-  }
-
-  .education-card {
-    flex-direction: column;
-  text-align: center;
-    align-items: center;
-  }
-
   .projects-grid {
     grid-template-columns: 1fr;
   }
@@ -893,12 +840,6 @@ body {
     flex-direction: column;
     align-items: center;
   }
-
-  .contact-link {
-    width: 100%;
-    max-width: 280px;
-    justify-content: center;
-  }
 }
 
 /* Smooth scroll offset for fixed nav */
@@ -918,3 +859,4 @@ button:focus-visible {
   outline: 2px solid var(--star-gold);
   outline-offset: 2px;
 }
+
