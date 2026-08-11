@@ -120,8 +120,18 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 3rem;
-  backdrop-filter: blur(12px);
-  background: rgba(26, 45, 74, 0.6);
+  backdrop-filter: blur(8px);
+  background: rgba(26, 45, 74, 0.35);
+  box-shadow: none;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Scroll-edge effect — chrome only thickens once there's content
+   underneath it to separate from, rather than being opaque from the top. */
+.nav-scrolled {
+  backdrop-filter: blur(16px) saturate(160%);
+  background: rgba(26, 45, 74, 0.72);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .nav-logo {
@@ -197,14 +207,26 @@ body {
 
 .hero-rings {
   position: relative;
+  z-index: 0;
   width: 420px;
   height: 420px;
   flex-shrink: 0;
 }
 
+.hero-rings-draggable {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.hero-rings-draggable:active {
+  cursor: grabbing;
+}
+
 .ring-svg {
   width: 100%;
   height: 100%;
+  overflow: visible;
 }
 
 .ring-segment {
@@ -283,6 +305,8 @@ body {
 @keyframes ring-spin-8 { from { transform: rotate(140deg); } to { transform: rotate(500deg); } }
 
 .hero-text {
+  position: relative;
+  z-index: 1;
   flex: 1;
 }
 
@@ -299,7 +323,8 @@ body {
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.1;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
 }
 
@@ -342,9 +367,11 @@ body {
   font-weight: 500;
 }
 
+.btn-primary:active,
 .btn-primary:hover {
   opacity: 0.9;
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(0.98);
+  transition: transform 100ms ease-out, opacity 100ms ease-out;
 }
 
 .btn-secondary {
@@ -438,9 +465,13 @@ body {
 }
 
 .education-card {
-  padding: 1.5rem 0;
-  border-top: 1px solid rgba(244, 211, 94, 0.15);
+  padding: 1.75rem 1.75rem;
   margin-top: 2rem;
+  border-radius: 14px;
+  background: rgba(90, 127, 168, 0.1);
+  backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(244, 211, 94, 0.12);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
 }
 
 .education-details h3 {
@@ -551,14 +582,25 @@ body {
   gap: 2rem;
 }
 
-.project-card {
-  padding: 2rem 0;
-  border-bottom: 1px solid rgba(244, 211, 94, 0.1);
-  transition: all 0.3s ease;
+.project-reveal {
+  display: flex;
 }
 
-.project-card:first-child {
-  border-top: 1px solid rgba(244, 211, 94, 0.1);
+.project-card {
+  width: 100%;
+  padding: 1.75rem;
+  border-radius: 14px;
+  background: rgba(90, 127, 168, 0.1);
+  backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(244, 211, 94, 0.12);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.project-card:hover {
+  background: rgba(90, 127, 168, 0.16);
+  border-color: rgba(244, 211, 94, 0.22);
 }
 
 .project-header {
@@ -632,6 +674,7 @@ body {
 .skill-item {
   padding: 0.4rem 0;
   font-size: 1rem;
+  letter-spacing: 0.01em;
   color: var(--text-secondary);
   transition: color 0.3s ease;
 }
@@ -762,12 +805,9 @@ body {
     gap: 2rem;
     background: rgba(26, 45, 74, 0.98);
     backdrop-filter: blur(20px);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-  }
-
-  .nav-links.active {
-    transform: translateX(0);
+    transform: translateX(var(--drawer-x, 100%));
+    touch-action: none;
+    user-select: none;
   }
 
   .nav-links a {
@@ -858,5 +898,44 @@ a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--star-gold);
   outline-offset: 2px;
+}
+
+/* ============================================
+   Reduced motion & transparency
+   The spring hooks in app/hooks already read this and snap straight to
+   target — this covers the remaining CSS-only motion (waves, rings,
+   button press, nav transitions).
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .ring-1, .ring-2, .ring-3, .ring-4,
+  .ring-5, .ring-6, .ring-7, .ring-8 {
+    animation: none;
+  }
+
+  .btn-primary:active,
+  .btn-primary:hover,
+  .nav-links,
+  .nav {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .nav,
+  .nav-scrolled,
+  .nav-links {
+    backdrop-filter: none;
+    background: var(--night-deep);
+  }
+
+  .project-card,
+  .education-card {
+    backdrop-filter: none;
+    background: var(--night-blue);
+  }
 }
 
